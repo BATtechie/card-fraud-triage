@@ -1,0 +1,23 @@
+{
+  "raw_path": "data/raw/creditcard.csv",
+  "clean_path": "data/processed/creditcard_clean.csv",
+  "removed": {
+    "missing_values": 0,
+    "rows_with_missing_values": 0,
+    "duplicate_rows": 1081
+  },
+  "before": {
+    "rows": 284807,
+    "duplicates": 1081,
+    "nulls": 0,
+    "frauds": 492,
+    "fraud_rate": 0.001727485630620034
+  },
+  "after": {
+    "rows": 283726,
+    "duplicates": 0,
+    "nulls": 0,
+    "frauds": 473,
+    "fraud_rate": 0.001667101358352777
+  }
+}
