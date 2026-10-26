@@ -1,10 +1,47 @@
 {
-  "raw_path": "data/raw/creditcard.csv",
-  "clean_path": "data/processed/creditcard_clean.csv",
+  "project": "Card Fraud Triage",
+  "raw_dataset": "/Users/yuvrajchandravansi/Desktop/card-fraud-triage/data/raw/creditcard.csv",
+  "clean_dataset": "/Users/yuvrajchandravansi/Desktop/card-fraud-triage/data/processed/creditcard_clean.csv",
+  "raw_shape": [
+    284807,
+    31
+  ],
+  "clean_shape": [
+    283726,
+    31
+  ],
+  "rows_removed": {
+    "missing_or_infinite_values": 0,
+    "exact_duplicates": 1081,
+    "total": 1081
+  },
   "removed": {
     "missing_values": 0,
     "rows_with_missing_values": 0,
     "duplicate_rows": 1081
+  },
+  "duplicate_analysis": {
+    "duplicate_rows_labelled_fraud": 19,
+    "duplicate_rows_labelled_legitimate": 1062,
+    "identical_feature_groups_with_conflicting_labels": 0
+  },
+  "before_cleaning": {
+    "Rows": 284807,
+    "Columns": 31,
+    "Legitimate transactions": 284315,
+    "Fraud transactions": 492,
+    "Fraud rate (%)": 0.1727485630620034,
+    "Missing cells": 0,
+    "Exact duplicate rows": 1081
+  },
+  "after_cleaning": {
+    "Rows": 283726,
+    "Columns": 31,
+    "Legitimate transactions": 283253,
+    "Fraud transactions": 473,
+    "Fraud rate (%)": 0.1667101358352777,
+    "Missing cells": 0,
+    "Exact duplicate rows": 0
   },
   "before": {
     "rows": 284807,
@@ -19,5 +56,9 @@
     "nulls": 0,
     "frauds": 473,
     "fraud_rate": 0.001667101358352777
-  }
+  },
+  "zero_amount_rows_retained": 1808,
+  "outlier_policy": "IQR flags are diagnostic only; no outliers were removed.",
+  "preprocessing_policy": "Scaling and train/validation/test splitting are intentionally deferred to a separate preprocessing notebook.",
+  "modeling_note": "Exclude Class from GMM input features. Use Class only to select legitimate training rows and evaluate anomaly detection."
 }
