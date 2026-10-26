@@ -50,7 +50,12 @@ python -c "import pandas as pd; print(pd.read_csv('data/raw/creditcard.csv').sha
 Expected output: `(284807, 31)`
 
 ### 6. Run
-Open `notebooks/01_gmm_baseline.ipynb` and run all cells.
+1. Run data extraction and overview:
+   Open `notebooks/extraction.ipynb` and run all cells.
+2. Run data cleaning and audit reporting:
+   Open `notebooks/cleaning.ipynb` and run all cells.
+3. Run exploratory data analysis and feature profiling:
+   Open `notebooks/eda.ipynb` and run all cells.
 
 ## Project structure
 ```
