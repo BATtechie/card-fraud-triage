@@ -1,0 +1,1476 @@
+{
+  "report_version": "2.0",
+  "run_timestamp_utc": "2026-10-27T05:14:07.494770+00:00",
+  "project": "Card Fraud Triage",
+  "notebook": "notebooks/gmm_baseline.ipynb",
+  "git": {
+    "commit": "57705f63c83ba43f631e77aaa9d08e1a3b08966f",
+    "worktree_dirty": true
+  },
+  "dataset": {
+    "path": "data/processed/creditcard_clean.csv",
+    "shape": [
+      283726,
+      31
+    ],
+    "raw_sha256": "76274b691b16a6c49d3f159c883398e03ccd6d1ee12d9d8ee38f4b4b98551a89",
+    "cleaned_sha256": "a9fa2e47a9fcffb8d53e72473fe4dd280b4e8d1ec3337adc4b224fe7d2b3c9b5",
+    "fraud_prevalence": 0.001667101358352777
+  },
+  "split_strategy": "chronological approximately 60/20/20; equal elapsed Time values kept together",
+  "splits": {
+    "train": {
+      "rows": 170235,
+      "legitimate": 169893,
+      "frauds": 342,
+      "fraud_rate_percent": 0.2008987575997885,
+      "minimum_elapsed_seconds": 0.0,
+      "maximum_elapsed_seconds": 120392.0
+    },
+    "validation": {
+      "rows": 56745,
+      "legitimate": 56688,
+      "frauds": 57,
+      "fraud_rate_percent": 0.10044937879989425,
+      "minimum_elapsed_seconds": 120393.0,
+      "maximum_elapsed_seconds": 145233.0
+    },
+    "test": {
+      "rows": 56746,
+      "legitimate": 56672,
+      "frauds": 74,
+      "fraud_rate_percent": 0.1304056673598139,
+      "minimum_elapsed_seconds": 145234.0,
+      "maximum_elapsed_seconds": 172792.0
+    }
+  },
+  "feature_comparison": {
+    "with_time": {
+      "best_covariance_type": "full",
+      "best_components": 8,
+      "validation_average_precision": 0.6522270374568764,
+      "validation_roc_auc": 0.9256827770102648
+    },
+    "without_time": {
+      "best_covariance_type": "full",
+      "best_components": 4,
+      "validation_average_precision": 0.7108105947062072,
+      "validation_roc_auc": 0.9475144960906358
+    }
+  },
+  "selected_feature_configuration": "without_time",
+  "feature_names_in_order": [
+    "V1",
+    "V2",
+    "V3",
+    "V4",
+    "V5",
+    "V6",
+    "V7",
+    "V8",
+    "V9",
+    "V10",
+    "V11",
+    "V12",
+    "V13",
+    "V14",
+    "V15",
+    "V16",
+    "V17",
+    "V18",
+    "V19",
+    "V20",
+    "V21",
+    "V22",
+    "V23",
+    "V24",
+    "V25",
+    "V26",
+    "V27",
+    "V28",
+    "Amount"
+  ],
+  "class_excluded_from_model_features": true,
+  "component_selection": {
+    "selection_rule": "highest validation average precision among converged candidates; ties retain the first deterministic grid candidate",
+    "criterion_winners_by_feature_and_covariance": {
+      "with_time:diag": {
+        "aic_components": 256,
+        "bic_components": 256
+      },
+      "with_time:full": {
+        "aic_components": 8,
+        "bic_components": 8
+      },
+      "with_time:spherical": {
+        "aic_components": 64,
+        "bic_components": 64
+      },
+      "with_time:tied": {
+        "aic_components": 32,
+        "bic_components": 32
+      },
+      "without_time:diag": {
+        "aic_components": 256,
+        "bic_components": 256
+      },
+      "without_time:full": {
+        "aic_components": 8,
+        "bic_components": 8
+      },
+      "without_time:spherical": {
+        "aic_components": 64,
+        "bic_components": 64
+      },
+      "without_time:tied": {
+        "aic_components": 32,
+        "bic_components": 32
+      }
+    },
+    "training_information_criteria_are_diagnostics": "AIC/BIC minima are reported within each feature/covariance family but are not treated as a true cluster count when BIC improves at the configured upper boundary.",
+    "candidate_grid_by_covariance": {
+      "diag": [
+        1,
+        2,
+        4,
+        8,
+        12,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96,
+        128,
+        192,
+        256
+      ],
+      "spherical": [
+        1,
+        2,
+        4,
+        8,
+        16,
+        32,
+        64
+      ],
+      "tied": [
+        1,
+        2,
+        4,
+        8,
+        16,
+        32
+      ],
+      "full": [
+        1,
+        2,
+        4,
+        8
+      ]
+    },
+    "fit_results": [
+      {
+        "feature_configuration": "with_time",
+        "covariance_type": "diag",
+        "components": 1,
+        "converged": true,
+        "iterations": 2,
+        "aic": 14464183.453307038,
+        "bic": 14464786.028753404,
+        "validation_average_precision": 0.024894199475299073,
+        "validation_roc_auc": 0.9451918410901654,
+        "runtime_seconds": 0.2136523330000002,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "with_time",
+        "covariance_type": "diag",
+        "components": 2,
+        "converged": true,
+        "iterations": 7,
+        "aic": 12142511.568048589,
+        "bic": 12143726.761865428,
+        "validation_average_precision": 0.04336071391657422,
+        "validation_roc_auc": 0.9468163069259374,
+        "runtime_seconds": 0.4313863330000003,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "with_time",
+        "covariance_type": "diag",
+        "components": 4,
+        "converged": true,
+        "iterations": 22,
+        "aic": 11236315.049853778,
+        "bic": 11238755.480411561,
+        "validation_average_precision": 0.04395825155087317,
+        "validation_roc_auc": 0.949415947432793,
+        "runtime_seconds": 0.8317057920000002,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "with_time",
+        "covariance_type": "diag",
+        "components": 8,
+        "converged": true,
+        "iterations": 38,
+        "aic": 10201090.532792522,
+        "bic": 10205981.436832195,
+        "validation_average_precision": 0.07078277217759653,
+        "validation_roc_auc": 0.9507990180786429,
+        "runtime_seconds": 1.3502241670000004,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "with_time",
+        "covariance_type": "diag",
+        "components": 12,
+        "converged": true,
+        "iterations": 26,
+        "aic": 9958648.915742463,
+        "bic": 9965990.293264026,
+        "validation_average_precision": 0.07285878602940926,
+        "validation_roc_auc": 0.9509447836356344,
+        "runtime_seconds": 1.202150916,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "with_time",
+        "covariance_type": "diag",
+        "components": 16,
+        "converged": true,
+        "iterations": 39,
+        "aic": 9439360.626803953,
+        "bic": 9449152.477807406,
+        "validation_average_precision": 0.07516842710837963,
+        "validation_roc_auc": 0.9584162742447426,
+        "runtime_seconds": 1.8121062080000003,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "with_time",
+        "covariance_type": "diag",
+        "components": 24,
+        "converged": true,
+        "iterations": 49,
+        "aic": 9015250.080639074,
+        "bic": 9029942.878606305,
+        "validation_average_precision": 0.07824334518459103,
+        "validation_roc_auc": 0.9575983159281211,
+        "runtime_seconds": 3.106690833,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "with_time",
+        "covariance_type": "diag",
+        "components": 32,
+        "converged": true,
+        "iterations": 80,
+        "aic": 8481452.827158127,
+        "bic": 8501046.572089138,
+        "validation_average_precision": 0.08225211517642235,
+        "validation_roc_auc": 0.957567367826849,
+        "runtime_seconds": 5.914837040999998,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "with_time",
+        "covariance_type": "diag",
+        "components": 48,
+        "converged": true,
+        "iterations": 66,
+        "aic": 8057830.076592295,
+        "bic": 8087225.715450864,
+        "validation_average_precision": 0.1474755718016292,
+        "validation_roc_auc": 0.9583379755485242,
+        "runtime_seconds": 7.029416250000001,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "with_time",
+        "covariance_type": "diag",
+        "components": 64,
+        "converged": true,
+        "iterations": 90,
+        "aic": 7672402.454527894,
+        "bic": 7711599.987314021,
+        "validation_average_precision": 0.15576153236437582,
+        "validation_roc_auc": 0.9549067595604874,
+        "runtime_seconds": 12.314116583000004,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "with_time",
+        "covariance_type": "diag",
+        "components": 96,
+        "converged": true,
+        "iterations": 87,
+        "aic": 6997215.997512826,
+        "bic": 7056017.3181540705,
+        "validation_average_precision": 0.17338041492498893,
+        "validation_roc_auc": 0.9508005654837064,
+        "runtime_seconds": 17.318797542,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "with_time",
+        "covariance_type": "diag",
+        "components": 128,
+        "converged": true,
+        "iterations": 98,
+        "aic": 6593717.865931408,
+        "bic": 6672122.974427769,
+        "validation_average_precision": 0.15904999471510023,
+        "validation_roc_auc": 0.9522139652688029,
+        "runtime_seconds": 26.296005541999996,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "with_time",
+        "covariance_type": "diag",
+        "components": 192,
+        "converged": true,
+        "iterations": 62,
+        "aic": 6071293.20397987,
+        "bic": 6188905.888186465,
+        "validation_average_precision": 0.12689312346358064,
+        "validation_roc_auc": 0.9486490534832708,
+        "runtime_seconds": 29.46237624999999,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "with_time",
+        "covariance_type": "diag",
+        "components": 256,
+        "converged": true,
+        "iterations": 92,
+        "aic": 5593037.46541986,
+        "bic": 5749857.725336689,
+        "validation_average_precision": 0.11970126000747987,
+        "validation_roc_auc": 0.952508591192913,
+        "runtime_seconds": 52.476502958,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "with_time",
+        "covariance_type": "spherical",
+        "components": 1,
+        "converged": true,
+        "iterations": 2,
+        "aic": 14464125.453307038,
+        "bic": 14464436.783954328,
+        "validation_average_precision": 0.024894199475299073,
+        "validation_roc_auc": 0.9451918410901654,
+        "runtime_seconds": 0.12456566699998461,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "with_time",
+        "covariance_type": "spherical",
+        "components": 2,
+        "converged": true,
+        "iterations": 10,
+        "aic": 13203313.249153187,
+        "bic": 13203945.953371871,
+        "validation_average_precision": 0.026657388918448308,
+        "validation_roc_auc": 0.9460599353308476,
+        "runtime_seconds": 0.3967611249999834,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "with_time",
+        "covariance_type": "spherical",
+        "components": 4,
+        "converged": true,
+        "iterations": 7,
+        "aic": 12780909.333740758,
+        "bic": 12782184.785102233,
+        "validation_average_precision": 0.02662919989380231,
+        "validation_roc_auc": 0.9476992562552302,
+        "runtime_seconds": 0.35953620800000863,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "with_time",
+        "covariance_type": "spherical",
+        "components": 8,
+        "converged": true,
+        "iterations": 11,
+        "aic": 12163217.977168282,
+        "bic": 12165778.92281534,
+        "validation_average_precision": 0.028220524593869735,
+        "validation_roc_auc": 0.94934167198974,
+        "runtime_seconds": 0.4805891670000051,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "with_time",
+        "covariance_type": "spherical",
+        "components": 16,
+        "converged": true,
+        "iterations": 35,
+        "aic": 11627620.040803203,
+        "bic": 11632751.975021424,
+        "validation_average_precision": 0.03235530702597451,
+        "validation_roc_auc": 0.9504740630152859,
+        "runtime_seconds": 1.6070498340000086,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "with_time",
+        "covariance_type": "spherical",
+        "components": 32,
+        "converged": true,
+        "iterations": 51,
+        "aic": 10849707.016127631,
+        "bic": 10859980.927488176,
+        "validation_average_precision": 0.03404429664638863,
+        "validation_roc_auc": 0.9426494545706632,
+        "runtime_seconds": 3.8859017079999774,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "with_time",
+        "covariance_type": "spherical",
+        "components": 64,
+        "converged": true,
+        "iterations": 32,
+        "aic": 10336122.141311526,
+        "bic": 10356680.006956723,
+        "validation_average_precision": 0.04616739335417894,
+        "validation_roc_auc": 0.942664000178261,
+        "runtime_seconds": 4.996506374999996,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "with_time",
+        "covariance_type": "tied",
+        "components": 1,
+        "converged": true,
+        "iterations": 2,
+        "aic": 13742127.36672903,
+        "bic": 13747098.614161553,
+        "validation_average_precision": 0.06299687876695712,
+        "validation_roc_auc": 0.9491550549390693,
+        "runtime_seconds": 0.23745512499999677,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "with_time",
+        "covariance_type": "tied",
+        "components": 2,
+        "converged": true,
+        "iterations": 7,
+        "aic": 13631944.228099948,
+        "bic": 13637226.806179758,
+        "validation_average_precision": 0.06292065914880617,
+        "validation_roc_auc": 0.9432257082163494,
+        "runtime_seconds": 0.999021416000005,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "with_time",
+        "covariance_type": "tied",
+        "components": 4,
+        "converged": true,
+        "iterations": 31,
+        "aic": 11989358.205553876,
+        "bic": 11995263.444928266,
+        "validation_average_precision": 0.16672880529836068,
+        "validation_roc_auc": 0.9522303677624772,
+        "runtime_seconds": 3.6586838750000084,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "with_time",
+        "covariance_type": "tied",
+        "components": 8,
+        "converged": true,
+        "iterations": 10,
+        "aic": 12443253.761150686,
+        "bic": 12450404.323114233,
+        "validation_average_precision": 0.06513834744463586,
+        "validation_roc_auc": 0.9511549212432718,
+        "runtime_seconds": 2.201617749999997,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "with_time",
+        "covariance_type": "tied",
+        "components": 16,
+        "converged": true,
+        "iterations": 13,
+        "aic": 11863921.007957507,
+        "bic": 11873562.215099368,
+        "validation_average_precision": 0.07248780610918822,
+        "validation_roc_auc": 0.9505059395595962,
+        "runtime_seconds": 4.9288816250000025,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "with_time",
+        "covariance_type": "tied",
+        "components": 32,
+        "converged": true,
+        "iterations": 16,
+        "aic": 9964245.859707266,
+        "bic": 9978868.357205754,
+        "validation_average_precision": 0.2620932384693805,
+        "validation_roc_auc": 0.9432458244821763,
+        "runtime_seconds": 9.414210292000007,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "with_time",
+        "covariance_type": "full",
+        "components": 1,
+        "converged": true,
+        "iterations": 2,
+        "aic": 13742127.366729034,
+        "bic": 13747098.614161557,
+        "validation_average_precision": 0.06299687876695712,
+        "validation_roc_auc": 0.9491550549390693,
+        "runtime_seconds": 0.17789758300000358,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "with_time",
+        "covariance_type": "full",
+        "components": 2,
+        "converged": true,
+        "iterations": 83,
+        "aic": 4328767.045959693,
+        "bic": 4338719.5837488435,
+        "validation_average_precision": 0.06883623066558062,
+        "validation_roc_auc": 0.9306276646315195,
+        "runtime_seconds": 5.905992083000001,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "with_time",
+        "covariance_type": "full",
+        "components": 4,
+        "converged": true,
+        "iterations": 39,
+        "aic": 1577694.6215685126,
+        "bic": 1597609.7400709188,
+        "validation_average_precision": 0.07281510750074952,
+        "validation_roc_auc": 0.9408157795702917,
+        "runtime_seconds": 5.45009675,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "with_time",
+        "covariance_type": "full",
+        "components": 8,
+        "converged": true,
+        "iterations": 17,
+        "aic": -4703004.797198781,
+        "bic": -4663164.517269863,
+        "validation_average_precision": 0.6522270374568764,
+        "validation_roc_auc": 0.9256827770102648,
+        "runtime_seconds": 5.204355792000001,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "without_time",
+        "covariance_type": "diag",
+        "components": 1,
+        "converged": true,
+        "iterations": 2,
+        "aic": 13982044.004863467,
+        "bic": 13982626.49446162,
+        "validation_average_precision": 0.024872617355353118,
+        "validation_roc_auc": 0.943416967482211,
+        "runtime_seconds": 0.135711624999999,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "without_time",
+        "covariance_type": "diag",
+        "components": 2,
+        "converged": true,
+        "iterations": 9,
+        "aic": 11660377.508387757,
+        "bic": 11661552.530508172,
+        "validation_average_precision": 0.04346764720327191,
+        "validation_roc_auc": 0.9459058137865125,
+        "runtime_seconds": 0.44455129100001045,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "without_time",
+        "covariance_type": "diag",
+        "components": 4,
+        "converged": true,
+        "iterations": 7,
+        "aic": 11264928.301653527,
+        "bic": 11267288.388818461,
+        "validation_average_precision": 0.04330082412893125,
+        "validation_roc_auc": 0.9493305306732821,
+        "runtime_seconds": 0.4076698750000105,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "without_time",
+        "covariance_type": "diag",
+        "components": 8,
+        "converged": true,
+        "iterations": 24,
+        "aic": 10111921.719218139,
+        "bic": 10116651.936472114,
+        "validation_average_precision": 0.042812941646036703,
+        "validation_roc_auc": 0.9542484934464299,
+        "runtime_seconds": 1.0145859579999978,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "without_time",
+        "covariance_type": "diag",
+        "components": 12,
+        "converged": true,
+        "iterations": 48,
+        "aic": 9277845.929899573,
+        "bic": 9284946.27724259,
+        "validation_average_precision": 0.06994003346975586,
+        "validation_roc_auc": 0.9498863585721289,
+        "runtime_seconds": 2.19783666699999,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "without_time",
+        "covariance_type": "diag",
+        "components": 16,
+        "converged": true,
+        "iterations": 34,
+        "aic": 9005697.06423873,
+        "bic": 9015167.541670788,
+        "validation_average_precision": 0.07813987133795715,
+        "validation_roc_auc": 0.9561431362063073,
+        "runtime_seconds": 1.5957992079999883,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "without_time",
+        "covariance_type": "diag",
+        "components": 24,
+        "converged": true,
+        "iterations": 63,
+        "aic": 8666128.013700295,
+        "bic": 8680338.751310434,
+        "validation_average_precision": 0.07432532676278045,
+        "validation_roc_auc": 0.9575033052572158,
+        "runtime_seconds": 3.719548292000013,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "without_time",
+        "covariance_type": "diag",
+        "components": 32,
+        "converged": true,
+        "iterations": 75,
+        "aic": 7996640.400780001,
+        "bic": 8015591.39856822,
+        "validation_average_precision": 0.08121368726964291,
+        "validation_roc_auc": 0.9545870656743467,
+        "runtime_seconds": 5.480138790999973,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "without_time",
+        "covariance_type": "diag",
+        "components": 48,
+        "converged": true,
+        "iterations": 66,
+        "aic": 7673859.29649822,
+        "bic": 7702290.8146426035,
+        "validation_average_precision": 0.1498377520166399,
+        "validation_roc_auc": 0.9584490792320909,
+        "runtime_seconds": 7.044195833999993,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "without_time",
+        "covariance_type": "diag",
+        "components": 64,
+        "converged": true,
+        "iterations": 64,
+        "aic": 7203105.707385644,
+        "bic": 7241017.745886191,
+        "validation_average_precision": 0.181715995961842,
+        "validation_roc_auc": 0.961873177156835,
+        "runtime_seconds": 10.586610124999993,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "without_time",
+        "covariance_type": "diag",
+        "components": 96,
+        "converged": true,
+        "iterations": 103,
+        "aic": 6687107.910318069,
+        "bic": 6743980.9895309415,
+        "validation_average_precision": 0.1748045370667841,
+        "validation_roc_auc": 0.9450692866091279,
+        "runtime_seconds": 22.25208816600002,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "without_time",
+        "covariance_type": "diag",
+        "components": 128,
+        "converged": true,
+        "iterations": 103,
+        "aic": 6285848.330797319,
+        "bic": 6361682.450722517,
+        "validation_average_precision": 0.17893441711448585,
+        "validation_roc_auc": 0.9522879312308431,
+        "runtime_seconds": 27.09879762500003,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "without_time",
+        "covariance_type": "diag",
+        "components": 192,
+        "converged": true,
+        "iterations": 74,
+        "aic": 5700885.136967118,
+        "bic": 5814641.338316969,
+        "validation_average_precision": 0.03545939636117807,
+        "validation_roc_auc": 0.9437413035835426,
+        "runtime_seconds": 33.066602542,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "without_time",
+        "covariance_type": "diag",
+        "components": 256,
+        "converged": true,
+        "iterations": 127,
+        "aic": 5261548.76208514,
+        "bic": 5413227.044859643,
+        "validation_average_precision": 0.05498223621107789,
+        "validation_roc_auc": 0.9414338131526954,
+        "runtime_seconds": 79.03744583399998,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "without_time",
+        "covariance_type": "spherical",
+        "components": 1,
+        "converged": true,
+        "iterations": 2,
+        "aic": 13981988.004863467,
+        "bic": 13982289.29258665,
+        "validation_average_precision": 0.024872617355353118,
+        "validation_roc_auc": 0.943416967482211,
+        "runtime_seconds": 0.11729516700000886,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "without_time",
+        "covariance_type": "spherical",
+        "components": 2,
+        "converged": true,
+        "iterations": 7,
+        "aic": 12696496.482187947,
+        "bic": 12697109.100558419,
+        "validation_average_precision": 0.026732255346781267,
+        "validation_roc_auc": 0.9445016984317979,
+        "runtime_seconds": 0.3138913749999688,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "without_time",
+        "covariance_type": "spherical",
+        "components": 4,
+        "converged": true,
+        "iterations": 25,
+        "aic": 12102797.737546522,
+        "bic": 12104033.017211573,
+        "validation_average_precision": 0.028618655307953888,
+        "validation_roc_auc": 0.9468197112170773,
+        "runtime_seconds": 0.8681998340000519,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "without_time",
+        "covariance_type": "spherical",
+        "components": 8,
+        "converged": true,
+        "iterations": 39,
+        "aic": 11524260.99595854,
+        "bic": 11526741.598212749,
+        "validation_average_precision": 0.02997791887042365,
+        "validation_roc_auc": 0.9505319359646647,
+        "runtime_seconds": 1.2207604590000187,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "without_time",
+        "covariance_type": "spherical",
+        "components": 16,
+        "converged": true,
+        "iterations": 26,
+        "aic": 11053808.075431136,
+        "bic": 11058779.322863659,
+        "validation_average_precision": 0.03185094135877886,
+        "validation_roc_auc": 0.9475339933944373,
+        "runtime_seconds": 1.2372506250000015,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "without_time",
+        "covariance_type": "spherical",
+        "components": 32,
+        "converged": true,
+        "iterations": 26,
+        "aic": 10459019.343088584,
+        "bic": 10468971.880877733,
+        "validation_average_precision": 0.034990732730028555,
+        "validation_roc_auc": 0.9486790731415045,
+        "runtime_seconds": 2.1937223340000287,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "without_time",
+        "covariance_type": "spherical",
+        "components": 64,
+        "converged": true,
+        "iterations": 35,
+        "aic": 9821651.020618271,
+        "bic": 9841566.139120677,
+        "validation_average_precision": 0.052528580042167594,
+        "validation_roc_auc": 0.946689419710722,
+        "runtime_seconds": 5.718265332999977,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "without_time",
+        "covariance_type": "tied",
+        "components": 1,
+        "converged": true,
+        "iterations": 2,
+        "aic": 13302213.971306425,
+        "bic": 13306873.888091657,
+        "validation_average_precision": 0.06332763396362366,
+        "validation_roc_auc": 0.9503313922684216,
+        "runtime_seconds": 0.20619799999997213,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "without_time",
+        "covariance_type": "tied",
+        "components": 2,
+        "converged": true,
+        "iterations": 6,
+        "aic": 13202124.96064487,
+        "bic": 13207086.165153285,
+        "validation_average_precision": 0.06427969523675117,
+        "validation_roc_auc": 0.9499621814202455,
+        "runtime_seconds": 0.6647273750000409,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "without_time",
+        "covariance_type": "tied",
+        "components": 4,
+        "converged": true,
+        "iterations": 7,
+        "aic": 12035813.084839126,
+        "bic": 12041376.864793908,
+        "validation_average_precision": 0.15080549914846705,
+        "validation_roc_auc": 0.9541079890666547,
+        "runtime_seconds": 1.1178442919999725,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "without_time",
+        "covariance_type": "tied",
+        "components": 8,
+        "converged": true,
+        "iterations": 8,
+        "aic": 11908144.237552265,
+        "bic": 11914913.16839978,
+        "validation_average_precision": 0.06548714624118074,
+        "validation_roc_auc": 0.9540553772944922,
+        "runtime_seconds": 1.7034825829999818,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "without_time",
+        "covariance_type": "tied",
+        "components": 16,
+        "converged": true,
+        "iterations": 14,
+        "aic": 11385186.748750895,
+        "bic": 11394365.981383875,
+        "validation_average_precision": 0.07112809954151304,
+        "validation_roc_auc": 0.9528456160157662,
+        "runtime_seconds": 4.767877333000001,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "without_time",
+        "covariance_type": "tied",
+        "components": 32,
+        "converged": true,
+        "iterations": 33,
+        "aic": 10253834.98041234,
+        "bic": 10267834.81661625,
+        "validation_average_precision": 0.35673077304466455,
+        "validation_roc_auc": 0.9609153334224638,
+        "runtime_seconds": 17.28552420799997,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "without_time",
+        "covariance_type": "full",
+        "components": 1,
+        "converged": true,
+        "iterations": 2,
+        "aic": 13302213.971306426,
+        "bic": 13306873.88809166,
+        "validation_average_precision": 0.06332763396362366,
+        "validation_roc_auc": 0.9503313922684216,
+        "runtime_seconds": 0.1702803329999938,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "without_time",
+        "covariance_type": "full",
+        "components": 2,
+        "converged": true,
+        "iterations": 42,
+        "aic": 6025705.495660966,
+        "bic": 6035035.372155538,
+        "validation_average_precision": 0.6258557182246138,
+        "validation_roc_auc": 0.9354227634426173,
+        "runtime_seconds": 3.4775270420000197,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "without_time",
+        "covariance_type": "full",
+        "components": 4,
+        "converged": true,
+        "iterations": 27,
+        "aic": 863256.1340878747,
+        "bic": 881925.9300011238,
+        "validation_average_precision": 0.7108105947062072,
+        "validation_roc_auc": 0.9475144960906358,
+        "runtime_seconds": 3.813845875000027,
+        "status": "converged",
+        "error": null
+      },
+      {
+        "feature_configuration": "without_time",
+        "covariance_type": "full",
+        "components": 8,
+        "converged": true,
+        "iterations": 43,
+        "aic": -8065061.352338584,
+        "bic": -8027711.7175879795,
+        "validation_average_precision": 0.18165925137054872,
+        "validation_roc_auc": 0.9146807270080366,
+        "runtime_seconds": 12.965444665999996,
+        "status": "converged",
+        "error": null
+      }
+    ],
+    "boundary_findings": {
+      "with_time": {
+        "diag": {
+          "largest_tested_components": 256,
+          "lowest_bic_components": 256,
+          "bic_still_decreasing_at_upper_boundary": true
+        },
+        "spherical": {
+          "largest_tested_components": 64,
+          "lowest_bic_components": 64,
+          "bic_still_decreasing_at_upper_boundary": true
+        },
+        "tied": {
+          "largest_tested_components": 32,
+          "lowest_bic_components": 32,
+          "bic_still_decreasing_at_upper_boundary": true
+        },
+        "full": {
+          "largest_tested_components": 8,
+          "lowest_bic_components": 8,
+          "bic_still_decreasing_at_upper_boundary": true
+        }
+      },
+      "without_time": {
+        "diag": {
+          "largest_tested_components": 256,
+          "lowest_bic_components": 256,
+          "bic_still_decreasing_at_upper_boundary": true
+        },
+        "spherical": {
+          "largest_tested_components": 64,
+          "lowest_bic_components": 64,
+          "bic_still_decreasing_at_upper_boundary": true
+        },
+        "tied": {
+          "largest_tested_components": 32,
+          "lowest_bic_components": 32,
+          "bic_still_decreasing_at_upper_boundary": true
+        },
+        "full": {
+          "largest_tested_components": 8,
+          "lowest_bic_components": 8,
+          "bic_still_decreasing_at_upper_boundary": true
+        }
+      }
+    },
+    "selected": {
+      "feature_configuration": "without_time",
+      "covariance_type": "full",
+      "components": 4,
+      "validation_average_precision": 0.7108105947062072,
+      "training_bic": 881925.9300011238,
+      "reason_acceptable_within_budget": "Selected by held-out validation average precision, then checked across configured seeds. It is a provisional operating candidate only, not a claim that the component count is globally optimal or the true number of clusters."
+    }
+  },
+  "model_configuration": {
+    "type": "GaussianMixture",
+    "covariance_type": "full",
+    "n_init": 1,
+    "max_iter": 150,
+    "reg_covar": 1e-06,
+    "random_seed": 42,
+    "training_legitimate_rows": 169893,
+    "scaler_fit_rows": 169893
+  },
+  "threshold": {
+    "convention": "negative log-likelihood; alert if score >= threshold",
+    "selected_target_fpr": 0.01,
+    "validation_threshold_comparison": [
+      {
+        "target_fpr": 0.005,
+        "threshold": 87.2618008655842,
+        "validation_metrics": {
+          "rows": 56745,
+          "frauds": 57,
+          "average_precision": 0.7108105947062072,
+          "roc_auc": 0.9475144960906358,
+          "precision": 0.13414634146341464,
+          "recall_tpr": 0.7719298245614035,
+          "f1": 0.22857142857142856,
+          "false_positive_rate": 0.005009878633926051,
+          "flagged_transactions": 328,
+          "alert_rate_percent": 0.5780244955502688,
+          "legitimate_flagged": 284,
+          "frauds_detected": 44,
+          "frauds_missed": 13,
+          "confusion_matrix": {
+            "tn": 56404,
+            "fp": 284,
+            "fn": 13,
+            "tp": 44
+          }
+        }
+      },
+      {
+        "target_fpr": 0.01,
+        "threshold": 69.03856589079389,
+        "validation_metrics": {
+          "rows": 56745,
+          "frauds": 57,
+          "average_precision": 0.7108105947062072,
+          "roc_auc": 0.9475144960906358,
+          "precision": 0.07201309328968904,
+          "recall_tpr": 0.7719298245614035,
+          "f1": 0.1317365269461078,
+          "false_positive_rate": 0.01000211685012701,
+          "flagged_transactions": 611,
+          "alert_rate_percent": 1.0767468499427262,
+          "legitimate_flagged": 567,
+          "frauds_detected": 44,
+          "frauds_missed": 13,
+          "confusion_matrix": {
+            "tn": 56121,
+            "fp": 567,
+            "fn": 13,
+            "tp": 44
+          }
+        }
+      },
+      {
+        "target_fpr": 0.02,
+        "threshold": 58.17353310297637,
+        "validation_metrics": {
+          "rows": 56745,
+          "frauds": 57,
+          "average_precision": 0.7108105947062072,
+          "roc_auc": 0.9475144960906358,
+          "precision": 0.03816793893129771,
+          "recall_tpr": 0.7894736842105263,
+          "f1": 0.07281553398058252,
+          "false_positive_rate": 0.02000423370025402,
+          "flagged_transactions": 1179,
+          "alert_rate_percent": 2.0777160983346548,
+          "legitimate_flagged": 1134,
+          "frauds_detected": 45,
+          "frauds_missed": 12,
+          "confusion_matrix": {
+            "tn": 55554,
+            "fp": 1134,
+            "fn": 12,
+            "tp": 45
+          }
+        }
+      }
+    ],
+    "selected_value": 69.03856589079389,
+    "validation_empirical_legitimate_fpr": 0.01000211685012701,
+    "target_is_not_a_future_guarantee": true
+  },
+  "capacity_metrics": {
+    "validation": {
+      "100": {
+        "capacity": 100,
+        "alerts": 100,
+        "frauds_detected": 41,
+        "legitimate_alerts": 59,
+        "precision": 0.41,
+        "recall": 0.7192982456140351
+      },
+      "500": {
+        "capacity": 500,
+        "alerts": 500,
+        "frauds_detected": 44,
+        "legitimate_alerts": 456,
+        "precision": 0.088,
+        "recall": 0.7719298245614035
+      },
+      "1000": {
+        "capacity": 1000,
+        "alerts": 1000,
+        "frauds_detected": 44,
+        "legitimate_alerts": 956,
+        "precision": 0.044,
+        "recall": 0.7719298245614035
+      }
+    },
+    "test": {
+      "100": {
+        "capacity": 100,
+        "alerts": 100,
+        "frauds_detected": 56,
+        "legitimate_alerts": 44,
+        "precision": 0.56,
+        "recall": 0.7567567567567568
+      },
+      "500": {
+        "capacity": 500,
+        "alerts": 500,
+        "frauds_detected": 58,
+        "legitimate_alerts": 442,
+        "precision": 0.116,
+        "recall": 0.7837837837837838
+      },
+      "1000": {
+        "capacity": 1000,
+        "alerts": 1000,
+        "frauds_detected": 60,
+        "legitimate_alerts": 940,
+        "precision": 0.06,
+        "recall": 0.8108108108108109
+      }
+    }
+  },
+  "validation_metrics": {
+    "rows": 56745,
+    "frauds": 57,
+    "average_precision": 0.7108105947062072,
+    "roc_auc": 0.9475144960906358,
+    "precision": 0.07201309328968904,
+    "recall_tpr": 0.7719298245614035,
+    "f1": 0.1317365269461078,
+    "false_positive_rate": 0.01000211685012701,
+    "flagged_transactions": 611,
+    "alert_rate_percent": 1.0767468499427262,
+    "legitimate_flagged": 567,
+    "frauds_detected": 44,
+    "frauds_missed": 13,
+    "confusion_matrix": {
+      "tn": 56121,
+      "fp": 567,
+      "fn": 13,
+      "tp": 44
+    }
+  },
+  "test_metrics": {
+    "rows": 56746,
+    "frauds": 74,
+    "average_precision": 0.591341433188277,
+    "roc_auc": 0.9352945636913028,
+    "precision": 0.14987080103359174,
+    "recall_tpr": 0.7837837837837838,
+    "f1": 0.25162689804772237,
+    "false_positive_rate": 0.005805335968379447,
+    "flagged_transactions": 387,
+    "alert_rate_percent": 0.6819863955168646,
+    "legitimate_flagged": 329,
+    "frauds_detected": 58,
+    "frauds_missed": 16,
+    "confusion_matrix": {
+      "tn": 56343,
+      "fp": 329,
+      "fn": 16,
+      "tp": 58
+    }
+  },
+  "test_metrics_by_fpr_threshold": {
+    "0.005": {
+      "rows": 56746,
+      "frauds": 74,
+      "average_precision": 0.591341433188277,
+      "roc_auc": 0.9352945636913028,
+      "precision": 0.2651162790697674,
+      "recall_tpr": 0.7702702702702703,
+      "f1": 0.3944636678200692,
+      "false_positive_rate": 0.002787972896668549,
+      "flagged_transactions": 215,
+      "alert_rate_percent": 0.37888133084270254,
+      "legitimate_flagged": 158,
+      "frauds_detected": 57,
+      "frauds_missed": 17,
+      "confusion_matrix": {
+        "tn": 56514,
+        "fp": 158,
+        "fn": 17,
+        "tp": 57
+      }
+    },
+    "0.01": {
+      "rows": 56746,
+      "frauds": 74,
+      "average_precision": 0.591341433188277,
+      "roc_auc": 0.9352945636913028,
+      "precision": 0.14987080103359174,
+      "recall_tpr": 0.7837837837837838,
+      "f1": 0.25162689804772237,
+      "false_positive_rate": 0.005805335968379447,
+      "flagged_transactions": 387,
+      "alert_rate_percent": 0.6819863955168646,
+      "legitimate_flagged": 329,
+      "frauds_detected": 58,
+      "frauds_missed": 16,
+      "confusion_matrix": {
+        "tn": 56343,
+        "fp": 329,
+        "fn": 16,
+        "tp": 58
+      }
+    },
+    "0.02": {
+      "rows": 56746,
+      "frauds": 74,
+      "average_precision": 0.591341433188277,
+      "roc_auc": 0.9352945636913028,
+      "precision": 0.07151515151515152,
+      "recall_tpr": 0.7972972972972973,
+      "f1": 0.13125695216907676,
+      "false_positive_rate": 0.013516374929418408,
+      "flagged_transactions": 825,
+      "alert_rate_percent": 1.4538469671871146,
+      "legitimate_flagged": 766,
+      "frauds_detected": 59,
+      "frauds_missed": 15,
+      "confusion_matrix": {
+        "tn": 55906,
+        "fp": 766,
+        "fn": 15,
+        "tp": 59
+      }
+    }
+  },
+  "stability": {
+    "per_seed": [
+      {
+        "seed": 42,
+        "converged": true,
+        "iterations": 27,
+        "threshold": 69.03856589079389,
+        "validation_empirical_fpr": 0.01000211685012701,
+        "validation_alerts": 611,
+        "score_spearman_vs_reference": 1.0,
+        "alert_jaccard_vs_reference": 1.0
+      },
+      {
+        "seed": 43,
+        "converged": true,
+        "iterations": 51,
+        "threshold": 78.47406102011682,
+        "validation_empirical_fpr": 0.01000211685012701,
+        "validation_alerts": 610,
+        "score_spearman_vs_reference": 0.8538087320185692,
+        "alert_jaccard_vs_reference": 0.8333333333333334
+      },
+      {
+        "seed": 44,
+        "converged": true,
+        "iterations": 28,
+        "threshold": 72.12973809132193,
+        "validation_empirical_fpr": 0.01000211685012701,
+        "validation_alerts": 611,
+        "score_spearman_vs_reference": 0.9283099359431497,
+        "alert_jaccard_vs_reference": 0.8320839580209896
+      },
+      {
+        "seed": 45,
+        "converged": true,
+        "iterations": 32,
+        "threshold": 79.82569875520086,
+        "validation_empirical_fpr": 0.01000211685012701,
+        "validation_alerts": 611,
+        "score_spearman_vs_reference": 0.8282910391369678,
+        "alert_jaccard_vs_reference": 0.7997054491899853
+      },
+      {
+        "seed": 46,
+        "converged": true,
+        "iterations": 14,
+        "threshold": 68.67323752092126,
+        "validation_empirical_fpr": 0.01000211685012701,
+        "validation_alerts": 611,
+        "score_spearman_vs_reference": 0.96222324450738,
+        "alert_jaccard_vs_reference": 0.8713629402756509
+      }
+    ],
+    "summary": {
+      "seeds": [
+        42,
+        43,
+        44,
+        45,
+        46
+      ],
+      "mean_score_spearman_vs_reference": 0.9145265903212134,
+      "mean_alert_jaccard_vs_reference": 0.8672971361639918,
+      "threshold_mean": 73.62826025567094,
+      "threshold_std": 4.685149780873084,
+      "threshold_min": 68.67323752092126,
+      "threshold_max": 79.82569875520086,
+      "validation_fpr_mean": 0.01000211685012701,
+      "validation_fpr_min": 0.01000211685012701,
+      "validation_fpr_max": 0.01000211685012701
+    }
+  },
+  "monitoring_diagnostics": {
+    "validation_batch": {
+      "sample_rows": 1000,
+      "score_mean": 3.441713556434305,
+      "score_std": 23.598824866819943,
+      "score_quantiles": {
+        "0.5": -1.7623705846278899,
+        "0.9": 44.32138501481622,
+        "0.99": 65.71044411452566
+      },
+      "alert_count": 8,
+      "alert_rate": 0.008,
+      "scoring_latency_seconds": 0.09818074999998316,
+      "latency_per_row_ms": 0.09818074999998316,
+      "input_validation_failures": 0
+    },
+    "test_scoring_seconds": 0.08878616600003397,
+    "test_fraud_prevalence": 0.0013040566735981391
+  },
+  "artifacts": {
+    "model_path": "artifacts/gmm_model.joblib",
+    "model_sha256": "5fc5308b32fa75dc3aa6d41588a6019abbd5534d276f32359d044786cdc4af7f"
+  },
+  "reproducibility": {
+    "seed": 42,
+    "stability_seeds": [
+      42,
+      43,
+      44,
+      45,
+      46
+    ],
+    "python": "3.9.6",
+    "scikit_learn": "1.6.1",
+    "numpy": "2.0.2",
+    "pandas": "2.3.3",
+    "joblib": "1.5.3"
+  },
+  "cleaning_context": {
+    "exact_duplicate_rows_removed": 1081,
+    "fraud_duplicates_removed": 19,
+    "legitimate_duplicates_removed": 1062,
+    "note": "Exact duplicate removal can remove distinct repeated transactions; this report describes the cleaned data."
+  },
+  "limitations": [
+    "A GMM trained on legitimate transactions is an anomaly detector, not a guaranteed fraud classifier or fraud probability model.",
+    "New legitimate behavior can also receive high anomaly scores.",
+    "The chronological test set is one holdout with rare fraud examples; metrics have uncertainty.",
+    "The component grids are compute-budget limits. A BIC minimum at the grid boundary does not identify a true component count.",
+    "No operational review-team capacity was supplied; the 1% validation FPR is a configurable reference operating point.",
+    "Exact duplicate removal removed fraud-labeled examples as recorded above."
+  ]
+}
