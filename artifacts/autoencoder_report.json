@@ -1,0 +1,75 @@
+{
+  "report_version": "1.0",
+  "model_type": "Deep Autoencoder Anomaly Detector",
+  "dataset_sha256": "6f5ac090515e387aa0ff40182355396f25e0571065947bfe317a9269a66a2848",
+  "architecture": {
+    "input_dim": 29,
+    "encoder": [
+      29,
+      20,
+      12,
+      6
+    ],
+    "decoder": [
+      6,
+      12,
+      20,
+      29
+    ],
+    "loss_function": "Mean Squared Error (MSE)"
+  },
+  "training": {
+    "legitimate_rows": 169893,
+    "epochs_run": 40,
+    "final_train_loss": 0.513324334934614,
+    "final_val_loss": 0.677739679813385
+  },
+  "threshold_calibration": {
+    "target_fpr": 0.01,
+    "calibrated_threshold": 3.41702700853345,
+    "thresholds": {
+      "0.005": 6.2306107306480625,
+      "0.01": 3.41702700853345,
+      "0.02": 2.0072806262969993
+    }
+  },
+  "validation_metrics": {
+    "average_precision": 0.05085158689919334,
+    "roc_auc": 0.9464217186347184,
+    "precision": 0.06743421052631579,
+    "recall": 0.7192982456140351,
+    "f1": 0.12330827067669173,
+    "fpr": 0.01000211685012701
+  },
+  "test_metrics": {
+    "average_precision": 0.12807509294322428,
+    "roc_auc": 0.9479644364155234,
+    "precision": 0.14689265536723164,
+    "recall": 0.7027027027027027,
+    "f1": 0.24299065420560748,
+    "fpr": 0.005328910220214568,
+    "frauds_detected": 52,
+    "total_frauds": 74,
+    "false_alarms": 302
+  },
+  "capacity_metrics": {
+    "top_100": {
+      "capacity": 100,
+      "frauds_detected": 20,
+      "precision_at_k": 0.2,
+      "recall_at_k": 0.2702702702702703
+    },
+    "top_500": {
+      "capacity": 500,
+      "frauds_detected": 54,
+      "precision_at_k": 0.108,
+      "recall_at_k": 0.7297297297297297
+    },
+    "top_1000": {
+      "capacity": 1000,
+      "frauds_detected": 58,
+      "precision_at_k": 0.058,
+      "recall_at_k": 0.7837837837837838
+    }
+  }
+}
